@@ -15,7 +15,7 @@
 
 *A full-stack simulation platform demonstrating how AI optimizes 5G network resources better than conventional methods*
 
-[🚀 Live Demo](https://netpulseai.vercel.app) • [📖 API Docs](https://netpulseai.onrender.com/docs) • [🎯 Features](#features) • [🏗️ Architecture](#architecture)
+🚀 [Live Demo](https://netpulseai.vercel.app) • 📖 [API Docs](https://netpulseai.onrender.com/docs) • 🎯 [Features](#features) • [🏗️ Architecture](#architecture)
 
 </div>
 
