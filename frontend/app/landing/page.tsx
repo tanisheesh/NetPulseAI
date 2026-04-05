@@ -75,7 +75,7 @@ export default function LandingPage() {
               How It Works
             </Link>
             <a
-              href="http://localhost:8000/docs"
+              href={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/docs`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-[#1e1e2e] rounded-xl font-semibold text-lg hover:border-[#8b5cf6] transition-colors flex items-center justify-center gap-2"
