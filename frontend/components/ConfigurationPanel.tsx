@@ -107,7 +107,7 @@ export default function ConfigurationPanel({
   const hasAnyErrors = Object.values(errors).some((error) => error !== undefined);
 
   return (
-    <div className="bg-[#12121a] backdrop-blur-sm rounded-xl border border-[#1e1e2e] p-6">
+    <div className="bg-[#0a0a0a] backdrop-blur-sm rounded-xl border border-[#1a1a1a] p-6">
       <h2 className="text-lg font-semibold text-[#f1f5f9] mb-4 flex items-center gap-2">
         <span>⚙</span>
         <span>Simulation Configuration</span>
@@ -131,10 +131,10 @@ export default function ConfigurationPanel({
             value={config.total_bandwidth}
             onChange={(e) => handleChange("total_bandwidth", e.target.value)}
             disabled={disabled}
-            className={`w-full px-3 py-2 bg-[#1e1e2e] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6366f1] text-[#f1f5f9] ${
+            className={`w-full px-3 py-2 bg-[#1a1a1a] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#06b6d4] text-[#f1f5f9] ${
               errors.total_bandwidth
                 ? "border-[#ef4444]"
-                : "border-[#1e1e2e]"
+                : "border-[#1a1a1a]"
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           />
           {errors.total_bandwidth && (
@@ -160,10 +160,10 @@ export default function ConfigurationPanel({
             value={config.base_latency}
             onChange={(e) => handleChange("base_latency", e.target.value)}
             disabled={disabled}
-            className={`w-full px-3 py-2 bg-[#1e1e2e] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6366f1] text-[#f1f5f9] ${
+            className={`w-full px-3 py-2 bg-[#1a1a1a] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#06b6d4] text-[#f1f5f9] ${
               errors.base_latency
                 ? "border-[#ef4444]"
-                : "border-[#1e1e2e]"
+                : "border-[#1a1a1a]"
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           />
           {errors.base_latency && (
@@ -189,10 +189,10 @@ export default function ConfigurationPanel({
             value={config.congestion_factor}
             onChange={(e) => handleChange("congestion_factor", e.target.value)}
             disabled={disabled}
-            className={`w-full px-3 py-2 bg-[#1e1e2e] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6366f1] text-[#f1f5f9] ${
+            className={`w-full px-3 py-2 bg-[#1a1a1a] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#06b6d4] text-[#f1f5f9] ${
               errors.congestion_factor
                 ? "border-[#ef4444]"
-                : "border-[#1e1e2e]"
+                : "border-[#1a1a1a]"
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           />
           {errors.congestion_factor && (
@@ -218,10 +218,10 @@ export default function ConfigurationPanel({
             value={config.packet_loss_rate}
             onChange={(e) => handleChange("packet_loss_rate", e.target.value)}
             disabled={disabled}
-            className={`w-full px-3 py-2 bg-[#1e1e2e] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6366f1] text-[#f1f5f9] ${
+            className={`w-full px-3 py-2 bg-[#1a1a1a] border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#06b6d4] text-[#f1f5f9] ${
               errors.packet_loss_rate
                 ? "border-[#ef4444]"
-                : "border-[#1e1e2e]"
+                : "border-[#1a1a1a]"
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           />
           {errors.packet_loss_rate && (
@@ -248,7 +248,7 @@ export default function ConfigurationPanel({
               onConfigChange({ ...config, random_seed: value });
             }}
             disabled={disabled}
-            className={`w-full px-3 py-2 bg-[#1e1e2e] border border-[#1e1e2e] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6366f1] text-[#f1f5f9] ${
+            className={`w-full px-3 py-2 bg-[#1a1a1a] border border-[#1a1a1a] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#06b6d4] text-[#f1f5f9] ${
               disabled ? "opacity-50 cursor-not-allowed" : ""
             }`}
             placeholder="Leave empty for random"

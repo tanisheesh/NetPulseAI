@@ -22,18 +22,18 @@ export default function QoSImprovementBanner({
     <div
       className={`relative rounded-xl p-8 text-center overflow-hidden ${
         isRLBest
-          ? "bg-gradient-to-r from-[#22c55e]/10 to-[#10b981]/10 border border-[#22c55e]/30"
+          ? "bg-gradient-to-r from-[#14b8a6]/10 to-[#10b981]/10 border border-[#14b8a6]/30"
           : isAIBest
-          ? "bg-gradient-to-r from-[#6366f1]/10 to-[#8b5cf6]/10 border border-[#6366f1]/30"
-          : "bg-[#12121a] border border-[#1e1e2e]"
+          ? "bg-gradient-to-r from-[#06b6d4]/10 to-[#14b8a6]/10 border border-[#06b6d4]/30"
+          : "bg-[#0a0a0a] border border-[#1a1a1a]"
       }`}
     >
       {/* Glow effect */}
       {isRLBest && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e]/20 to-[#10b981]/20 blur-xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#14b8a6]/20 to-[#10b981]/20 blur-xl"></div>
       )}
       {isAIBest && !isRLBest && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#6366f1]/20 to-[#8b5cf6]/20 blur-xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06b6d4]/20 to-[#14b8a6]/20 blur-xl"></div>
       )}
 
       <div className="relative">
@@ -55,7 +55,7 @@ export default function QoSImprovementBanner({
           {/* AI */}
           <div className="flex flex-col items-center">
             <div className="text-sm text-[#64748b] mb-2">AI</div>
-            <div className="text-4xl font-bold text-purple-400">
+            <div className="text-4xl font-bold text-cyan-400">
               {aiQoS.toFixed(1)}
             </div>
             <div className={`text-sm mt-1 ${aiImprovement > 0 ? 'text-[#10b981]' : 'text-[#ef4444]'}`}>
@@ -70,7 +70,7 @@ export default function QoSImprovementBanner({
               {/* RL */}
               <div className="flex flex-col items-center">
                 <div className="text-sm text-[#64748b] mb-2">RL</div>
-                <div className="text-4xl font-bold text-green-400">
+                <div className="text-4xl font-bold text-teal-400">
                   {rlQoS.toFixed(1)}
                 </div>
                 <div className={`text-sm mt-1 ${rlImprovement! > 0 ? 'text-[#10b981]' : 'text-[#ef4444]'}`}>

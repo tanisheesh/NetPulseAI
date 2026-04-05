@@ -22,9 +22,9 @@ export default function ExplainabilityPanel({
   };
 
   return (
-    <div className="bg-[#12121a] backdrop-blur-sm rounded-xl border-t-4 border-t-[#8b5cf6] border-x border-b border-[#1e1e2e] p-6 relative overflow-hidden">
+    <div className="bg-[#0a0a0a] backdrop-blur-sm rounded-xl border-t-4 border-t-[#14b8a6] border-x border-b border-[#1a1a1a] p-6 relative overflow-hidden">
       {/* Purple glow */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-[#8b5cf6]/10 blur-2xl"></div>
+      <div className="absolute top-0 left-0 right-0 h-32 bg-[#14b8a6]/10 blur-2xl"></div>
       
       <div className="relative">
         <div className="flex items-center justify-between mb-4">
@@ -40,15 +40,15 @@ export default function ExplainabilityPanel({
         </div>
 
         <div className="flex items-center gap-2 mb-3">
-          <span className="px-2 py-1 bg-[#8b5cf6]/20 text-[#8b5cf6] text-xs rounded-full font-semibold border border-[#8b5cf6]/30">
+          <span className="px-2 py-1 bg-[#14b8a6]/20 text-[#14b8a6] text-xs rounded-full font-semibold border border-[#14b8a6]/30">
             Groq
           </span>
-          <span className="px-2 py-1 bg-[#8b5cf6]/20 text-[#8b5cf6] text-xs rounded-full font-semibold border border-[#8b5cf6]/30">
+          <span className="px-2 py-1 bg-[#14b8a6]/20 text-[#14b8a6] text-xs rounded-full font-semibold border border-[#14b8a6]/30">
             Llama 3
           </span>
         </div>
 
-        <div className="bg-[#1e1e2e] border-l-4 border-[#8b5cf6] rounded-lg p-4">
+        <div className="bg-[#1a1a1a] border-l-4 border-[#14b8a6] rounded-lg p-4">
           {explanation ? (
             <p className="text-[#f1f5f9] leading-relaxed" style={{ fontSize: "14px" }}>
               {explanation}

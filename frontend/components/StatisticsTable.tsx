@@ -118,7 +118,7 @@ export default function StatisticsTable({ history }: StatisticsTableProps) {
   };
 
   return (
-    <div className="bg-[#12121a] backdrop-blur-sm rounded-xl border border-[#6366f1]/30 p-6">
+    <div className="bg-[#0a0a0a] backdrop-blur-sm rounded-xl border border-[#06b6d4]/30 p-6">
       <div className="mb-4">
         <h2 className="text-lg font-semibold text-[#f1f5f9]">
           Statistics Table
@@ -133,8 +133,8 @@ export default function StatisticsTable({ history }: StatisticsTableProps) {
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="sticky top-0 bg-[#12121a]">
-              <tr className="border-b border-[#1e1e2e]">
+            <thead className="sticky top-0 bg-[#0a0a0a]">
+              <tr className="border-b border-[#1a1a1a]">
                 <th className="text-left py-3 px-4 font-semibold text-[#f1f5f9]">
                   User Type
                 </th>
@@ -144,7 +144,7 @@ export default function StatisticsTable({ history }: StatisticsTableProps) {
                 <th className="text-center py-3 px-4 font-semibold text-blue-400">
                   Baseline
                 </th>
-                <th className="text-center py-3 px-4 font-semibold text-purple-400">
+                <th className="text-center py-3 px-4 font-semibold text-cyan-400">
                   AI
                 </th>
                 {hasRL && (
@@ -207,13 +207,13 @@ function UserTypeRows({
     video_streaming: "bg-[#06b6d4]/20 text-[#06b6d4] border-[#06b6d4]/30",
     online_gaming: "bg-[#10b981]/20 text-[#10b981] border-[#10b981]/30",
     iot_devices: "bg-[#f59e0b]/20 text-[#f59e0b] border-[#f59e0b]/30",
-    voip_messaging: "bg-[#8b5cf6]/20 text-[#8b5cf6] border-[#8b5cf6]/30",
+    voip_messaging: "bg-[#14b8a6]/20 text-[#14b8a6] border-[#14b8a6]/30",
   };
 
   return (
     <>
       {/* Latency Row */}
-      <tr className="border-b border-[#1e1e2e] hover:bg-[#1e1e2e]/50">
+      <tr className="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
         <td className="py-2 px-4">
           <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium border ${userTypeColors[userType]}`}>
             {label}
@@ -244,7 +244,7 @@ function UserTypeRows({
       </tr>
 
       {/* Throughput Row */}
-      <tr className="border-b border-[#1e1e2e] hover:bg-[#1e1e2e]/50">
+      <tr className="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
         <td className="py-2 px-4"></td>
         <td className="py-2 px-4 text-[#64748b]">Throughput (Mbps)</td>
         <td className="py-2 px-4 text-center text-[#f1f5f9]">
@@ -271,7 +271,7 @@ function UserTypeRows({
       </tr>
 
       {/* Packet Loss Row */}
-      <tr className="border-b border-[#1e1e2e] hover:bg-[#1e1e2e]/50">
+      <tr className="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
         <td className="py-2 px-4"></td>
         <td className="py-2 px-4 text-[#64748b]">Packet Loss (%)</td>
         <td className="py-2 px-4 text-center text-[#f1f5f9]">
@@ -298,7 +298,7 @@ function UserTypeRows({
       </tr>
 
       {/* Allocation Efficiency Row */}
-      <tr className="border-b border-[#1e1e2e] hover:bg-[#1e1e2e]/50">
+      <tr className="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
         <td className="py-2 px-4"></td>
         <td className="py-2 px-4 text-[#64748b]">Allocation Efficiency</td>
         <td className="py-2 px-4 text-center text-[#f1f5f9]">

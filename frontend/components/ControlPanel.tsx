@@ -14,7 +14,7 @@ export default function ControlPanel({
   onReset,
 }: ControlPanelProps) {
   return (
-    <div className="bg-[#12121a] backdrop-blur-sm rounded-xl border border-[#1e1e2e] p-6">
+    <div className="bg-[#0a0a0a] backdrop-blur-sm rounded-xl border border-[#1a1a1a] p-6">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex gap-3">
           <button
@@ -35,14 +35,14 @@ export default function ControlPanel({
           </button>
           <button
             onClick={onReset}
-            className="px-8 py-3 bg-[#1e1e2e] border-2 border-[#64748b] text-[#f1f5f9] rounded-xl font-semibold hover:border-[#6366f1] transition-colors flex items-center gap-2"
+            className="px-8 py-3 bg-[#1a1a1a] border-2 border-[#64748b] text-[#f1f5f9] rounded-xl font-semibold hover:border-[#06b6d4] transition-colors flex items-center gap-2"
           >
             <span>↻</span>
             <span>RESET</span>
           </button>
         </div>
         
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#1e1e2e] rounded-lg">
+        <div className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] rounded-lg">
           <span className="text-sm text-[#64748b]">Speed:</span>
           <span className="text-sm font-semibold text-[#06b6d4]">10 ticks/sec</span>
         </div>

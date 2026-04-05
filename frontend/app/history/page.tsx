@@ -90,16 +90,16 @@ export default function HistoryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-[#f1f5f9]">
+    <div className="min-h-screen bg-[#000000] text-[#f1f5f9]">
       {/* Simple Navbar */}
-      <nav className="sticky top-0 z-50 bg-[#12121a]/80 backdrop-blur-lg border-b border-[#1e1e2e]">
+      <nav className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="historyLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:'#6366f1',stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:'#8b5cf6',stopOpacity:1}} />
+                  <stop offset="0%" style={{stopColor:'#06b6d4',stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:'#14b8a6',stopOpacity:1}} />
                 </linearGradient>
               </defs>
               <rect width="40" height="40" rx="8" fill="url(#historyLogoGradient)"/>
@@ -119,13 +119,13 @@ export default function HistoryPage() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="px-4 py-2 text-[#f1f5f9] hover:text-[#6366f1] transition-colors font-medium"
+              className="px-4 py-2 text-[#f1f5f9] hover:text-[#06b6d4] transition-colors font-medium"
             >
               Home
             </Link>
             <Link
               href="/dashboard"
-              className="px-6 py-2 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="px-6 py-2 bg-gradient-to-r from-[#06b6d4] to-[#14b8a6] rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
               Dashboard
             </Link>
@@ -133,15 +133,15 @@ export default function HistoryPage() {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Simulation History</h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Simulation History</h1>
           <p className="text-[#64748b]">View and analyze past simulation runs</p>
         </div>
 
         {loading && (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#6366f1]"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#06b6d4]"></div>
             <p className="mt-4 text-[#64748b]">Loading history...</p>
           </div>
         )}
@@ -157,7 +157,7 @@ export default function HistoryPage() {
             <p className="text-[#64748b] text-lg mb-4">No simulation history found</p>
             <Link
               href="/dashboard"
-              className="inline-block px-6 py-3 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-[#06b6d4] to-[#14b8a6] rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
               Start Your First Simulation
             </Link>
@@ -170,12 +170,12 @@ export default function HistoryPage() {
               {runs.map((run) => (
                 <div
                   key={run.run_id}
-                  className="bg-[#12121a] border border-[#1e1e2e] rounded-lg p-6 hover:border-[#6366f1] transition-colors"
+                  className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4 sm:p-6 hover:border-[#06b6d4] transition-colors"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold">
+                  <div className="flex flex-col sm:flex-row items-start justify-between mb-4 gap-3">
+                    <div className="w-full sm:w-auto">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
+                        <h3 className="text-base sm:text-lg font-semibold">
                           Run #{run.run_id.slice(0, 8)}
                         </h3>
                         <span
@@ -195,14 +195,14 @@ export default function HistoryPage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleExport(run.run_id, "csv")}
-                        className="px-3 py-1 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded text-sm transition-colors"
+                        className="px-3 py-1 bg-[#1a1a1a] hover:bg-[#2a2a3a] rounded text-sm transition-colors"
                         title="Export as CSV"
                       >
                         📊 CSV
                       </button>
                       <button
                         onClick={() => handleExport(run.run_id, "json")}
-                        className="px-3 py-1 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded text-sm transition-colors"
+                        className="px-3 py-1 bg-[#1a1a1a] hover:bg-[#2a2a3a] rounded text-sm transition-colors"
                         title="Export as JSON"
                       >
                         📄 JSON
@@ -228,7 +228,7 @@ export default function HistoryPage() {
                     </div>
                     <div>
                       <p className="text-xs text-[#64748b] mb-1">AI QoS</p>
-                      <p className="text-xl font-semibold text-[#6366f1]">
+                      <p className="text-xl font-semibold text-[#06b6d4]">
                         {run.avg_ai_qos.toFixed(2)}
                       </p>
                     </div>
@@ -240,7 +240,7 @@ export default function HistoryPage() {
                     </div>
                   </div>
 
-                  <div className="border-t border-[#1e1e2e] pt-4">
+                  <div className="border-t border-[#1a1a1a] pt-4">
                     <p className="text-xs text-[#64748b] mb-2">Configuration</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
                       <div>
@@ -280,8 +280,8 @@ export default function HistoryPage() {
                 disabled={!hasPrev}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   hasPrev
-                    ? "bg-[#1e1e2e] hover:bg-[#2a2a3a] text-[#f1f5f9]"
-                    : "bg-[#1e1e2e]/50 text-[#64748b] cursor-not-allowed"
+                    ? "bg-[#1a1a1a] hover:bg-[#2a2a3a] text-[#f1f5f9]"
+                    : "bg-[#1a1a1a]/50 text-[#64748b] cursor-not-allowed"
                 }`}
               >
                 ← Previous
@@ -296,8 +296,8 @@ export default function HistoryPage() {
                 disabled={!hasNext}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   hasNext
-                    ? "bg-[#1e1e2e] hover:bg-[#2a2a3a] text-[#f1f5f9]"
-                    : "bg-[#1e1e2e]/50 text-[#64748b] cursor-not-allowed"
+                    ? "bg-[#1a1a1a] hover:bg-[#2a2a3a] text-[#f1f5f9]"
+                    : "bg-[#1a1a1a]/50 text-[#64748b] cursor-not-allowed"
                 }`}
               >
                 Next →

@@ -28,8 +28,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     return (
       <div
         style={{
-          backgroundColor: "#12121a",
-          border: "1px solid #1e1e2e",
+          backgroundColor: "#0a0a0a",
+          border: "1px solid #1a1a1a",
           borderRadius: "8px",
           padding: "12px",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.8)",
@@ -62,14 +62,14 @@ export default function QoSBreakdownChart({ data }: QoSBreakdownChartProps) {
   const hasRL = data.some(d => d.rl !== undefined);
   
   return (
-    <div className="bg-[#12121a] backdrop-blur-sm rounded-xl border border-[#1e1e2e] p-6">
+    <div className="bg-[#0a0a0a] backdrop-blur-sm rounded-xl border border-[#1a1a1a] p-6">
       <h3 className="text-lg font-semibold text-[#f1f5f9] mb-4 flex items-center gap-2">
         <span>🎯</span>
         <span>QoS Score by User Type</span>
       </h3>
       <ResponsiveContainer width="100%" height={350}>
         <BarChart data={data} style={{ backgroundColor: 'transparent' }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#1e1e2e" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
           <XAxis
             dataKey="userType"
             stroke="#64748b"

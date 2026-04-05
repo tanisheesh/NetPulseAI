@@ -5,16 +5,16 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-[#f1f5f9]">
+    <div className="min-h-screen bg-black text-[#f1f5f9]">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-[#12121a]/80 backdrop-blur-lg border-b border-[#1e1e2e]">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-10 sm:h-10">
               <defs>
                 <linearGradient id="navLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:'#6366f1',stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:'#8b5cf6',stopOpacity:1}} />
+                  <stop offset="0%" style={{stopColor:'#06b6d4',stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:'#14b8a6',stopOpacity:1}} />
                 </linearGradient>
               </defs>
               <rect width="40" height="40" rx="8" fill="url(#navLogoGradient)"/>
@@ -29,20 +29,20 @@ export default function Home() {
               <circle cx="18" cy="16" r="1.5" fill="white" opacity="0.8"/>
               <circle cx="20" cy="24" r="1.5" fill="white" opacity="0.8"/>
             </svg>
-            <span className="text-xl font-bold">NetPulse AI</span>
+            <span className="text-lg sm:text-xl font-bold">NetPulse AI</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Link
               href="/history"
-              className="px-4 py-2 text-[#f1f5f9] hover:text-[#6366f1] transition-colors font-medium"
+              className="hidden sm:block px-4 py-2 text-[#f1f5f9] hover:text-[#06b6d4] transition-colors font-medium"
             >
               History
             </Link>
             <Link
               href="/dashboard"
-              className="px-6 py-2 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="px-4 sm:px-6 py-2 bg-gradient-to-r from-[#06b6d4] to-[#14b8a6] rounded-lg text-sm sm:text-base font-medium hover:opacity-90 transition-opacity"
             >
-              Launch Simulator
+              Launch
             </Link>
           </div>
         </div>
@@ -52,28 +52,31 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
         {/* Animated gradient background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6366f1]/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#8b5cf6]/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#06b6d4]/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#14b8a6]/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative max-w-5xl mx-auto text-center">
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#06b6d4] via-[#14b8a6] to-[#0891b2] bg-clip-text text-transparent leading-tight">
             Intelligent 5G Network Optimization
           </h1>
-          <p className="text-xl md:text-2xl text-[#64748b] mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-[#64748b] mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
             Watch AI outperform traditional allocation in real-time.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
             <Link
               href="/dashboard"
-              className="px-8 py-4 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-[#6366f1]/50"
+              className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#06b6d4] to-[#14b8a6] rounded-xl font-semibold text-base sm:text-lg hover:shadow-2xl hover:shadow-[#06b6d4]/50 transition-all duration-300 transform hover:scale-105"
             >
-              Launch Simulator
+              <span className="flex items-center justify-center gap-2">
+                <span>Launch Simulator</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
             </Link>
             <Link
               href="/how-it-works"
-              className="px-8 py-4 border-2 border-[#1e1e2e] rounded-xl font-semibold text-lg hover:border-[#6366f1] transition-colors"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-[#1a1a1a] hover:bg-[#2a2a2a] border border-[#2a2a2a] hover:border-[#06b6d4] rounded-xl font-semibold text-base sm:text-lg transition-all duration-300"
             >
               How It Works
             </Link>
@@ -81,12 +84,12 @@ export default function Home() {
               href={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/docs`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-[#1e1e2e] rounded-xl font-semibold text-lg hover:border-[#8b5cf6] transition-colors flex items-center justify-center gap-2"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-[#1a1a1a] hover:bg-[#2a2a2a] border border-[#2a2a2a] hover:border-[#14b8a6] rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              API Docs
+              <span>API Docs</span>
             </a>
           </div>
 
@@ -98,7 +101,7 @@ export default function Home() {
               { label: "Real-time WebSocket", icon: "🔄" },
               { label: "Groq AI Powered", icon: "🧠" },
             ].map((stat, i) => (
-              <div key={i} className="bg-[#12121a]/60 backdrop-blur-sm border border-[#1e1e2e] rounded-xl p-4">
+              <div key={i} className="bg-[#0a0a0a]/60 backdrop-blur-sm border border-[#1a1a1a] rounded-xl p-4">
                 <div className="text-2xl mb-1">{stat.icon}</div>
                 <div className="text-sm text-[#64748b]">{stat.label}</div>
               </div>
@@ -108,16 +111,16 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">Built With Modern Tech</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Built With Modern Tech</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             {[
               "Python", "FastAPI", "WebSocket", "Next.js", "React",
               "Tailwind CSS", "Recharts", "Groq API", "Llama 3", "Hypothesis"
             ].map((tech, i) => (
-              <div key={i} className="bg-[#12121a] border border-[#1e1e2e] rounded-lg p-4 text-center hover:border-[#6366f1] transition-colors">
-                <span className="text-sm font-medium">{tech}</span>
+              <div key={i} className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-3 sm:p-4 text-center hover:border-[#06b6d4] transition-colors">
+                <span className="text-xs sm:text-sm font-medium">{tech}</span>
               </div>
             ))}
           </div>

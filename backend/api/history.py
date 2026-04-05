@@ -42,7 +42,7 @@ def set_repository(repo: SimulationRepository):
 async def list_runs(
     page: int = Query(default=1, ge=1, description="Page number (1-indexed)"),
     limit: int = Query(default=20, ge=1, le=100, description="Items per page"),
-    sort: str = Query(default="desc", regex="^(asc|desc)$", description="Sort order by created_at")
+    sort: str = Query(default="desc", pattern="^(asc|desc)$", description="Sort order by created_at")
 ):
     """
     List simulation runs with pagination.

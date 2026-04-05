@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
+  --background: #000000;
   --foreground: #f1f5f9;
 }
 
@@ -9,28 +9,28 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   
-  /* NetPulse AI Color Palette */
-  --color-primary: #6366f1;
-  --color-secondary: #8b5cf6;
-  --color-accent: #06b6d4;
+  /* NetPulse AI Color Palette - Cyan/Teal Theme */
+  --color-primary: #06b6d4;
+  --color-secondary: #0891b2;
+  --color-accent: #14b8a6;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
-  --color-dark-bg: #0a0a0f;
-  --color-card-bg: #12121a;
-  --color-card-border: #1e1e2e;
+  --color-dark-bg: #000000;
+  --color-card-bg: #0a0a0a;
+  --color-card-border: #1a1a1a;
   --color-text-primary: #f1f5f9;
   --color-text-muted: #64748b;
   
   /* User Type Colors */
   --color-video: #06b6d4;
-  --color-gaming: #10b981;
+  --color-gaming: #14b8a6;
   --color-iot: #f59e0b;
-  --color-voip: #8b5cf6;
+  --color-voip: #0891b2;
 }
 
 body {
-  background: var(--background);
+  background: #000000;
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }

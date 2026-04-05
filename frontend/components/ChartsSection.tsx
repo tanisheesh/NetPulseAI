@@ -118,7 +118,7 @@ export default function ChartsSection({ history }: ChartsSectionProps) {
 
   if (history.length === 0) {
     return (
-      <div className="bg-[#12121a] rounded-xl border border-[#1e1e2e] p-6">
+      <div className="bg-[#0a0a0a] rounded-xl border border-[#1a1a1a] p-6">
         <p className="text-[#64748b] text-center">
           No data available. Start the simulation to see real-time charts.
         </p>

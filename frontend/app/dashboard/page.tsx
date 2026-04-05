@@ -236,7 +236,7 @@ export default function Dashboard() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen flex flex-col bg-[#0a0a0f]">
+      <div className="min-h-screen flex flex-col bg-black">
         <Navbar 
           connectionStatus={connectionStatus} 
           isRunning={isRunning}
@@ -272,8 +272,8 @@ export default function Dashboard() {
 
           {/* Loading State */}
           {loading && (
-            <div className="bg-[#6366f1]/10 border border-[#6366f1]/30 rounded-xl p-4">
-              <p className="text-[#6366f1] font-medium text-sm sm:text-base">Processing request...</p>
+            <div className="bg-[#06b6d4]/10 border border-[#06b6d4]/30 rounded-xl p-4">
+              <p className="text-[#06b6d4] font-medium text-sm sm:text-base">Processing request...</p>
             </div>
           )}
 

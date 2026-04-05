@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-[#0a0a0f] antialiased">{children}</body>
+      <body className="min-h-screen bg-[#000000] antialiased">{children}</body>
     </html>
   );
 }

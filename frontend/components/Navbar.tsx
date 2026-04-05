@@ -13,7 +13,7 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   return (
-    <nav className="sticky top-0 z-50 bg-[#12121a]/80 backdrop-blur-lg border-b border-[#1e1e2e]">
+    <nav className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-[#1a1a1a]">
       <div className="max-w-[2560px] w-full mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Left: Logo */}
@@ -21,8 +21,8 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
             <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-10 sm:h-10">
               <defs>
                 <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:'#6366f1',stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:'#8b5cf6',stopOpacity:1}} />
+                  <stop offset="0%" style={{stopColor:'#06b6d4',stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:'#14b8a6',stopOpacity:1}} />
                 </linearGradient>
               </defs>
               <rect width="40" height="40" rx="8" fill="url(#logoGradient)"/>
@@ -63,7 +63,7 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
             {/* Right: Stats & Back Link */}
             <div className="flex items-center gap-6">
               {/* Tick Counter */}
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-[#1e1e2e] rounded-lg">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] rounded-lg">
                 <span className="text-xs text-[#64748b]">Tick:</span>
                 <span className="text-sm font-mono font-bold text-[#f1f5f9]">{tickCount}</span>
               </div>
@@ -82,8 +82,8 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
 
               {/* Back to Home */}
               <Link
-                href="/landing"
-                className="text-sm text-[#64748b] hover:text-[#6366f1] transition-colors flex items-center gap-1"
+                href="/"
+                className="text-sm text-[#64748b] hover:text-[#06b6d4] transition-colors flex items-center gap-1"
               >
                 <span>←</span>
                 <span>Back to Home</span>
@@ -94,7 +94,7 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
           {/* Mobile: Hamburger Menu */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#f1f5f9] hover:bg-[#1e1e2e] rounded-lg transition-colors"
+            className="md:hidden p-2 text-[#f1f5f9] hover:bg-[#1a1a1a] rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
         
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-[#1e1e2e] space-y-4">
+          <div className="md:hidden mt-4 pt-4 border-t border-[#1a1a1a] space-y-4">
             {/* Simulation Status */}
             <div className="flex items-center justify-between">
               <span className="text-sm text-[#64748b]">Status:</span>
@@ -151,8 +151,8 @@ export default function Navbar({ connectionStatus, isRunning, tickCount }: Navba
             
             {/* Back to Home */}
             <Link
-              href="/landing"
-              className="block text-sm text-[#6366f1] hover:text-[#8b5cf6] transition-colors text-center py-2"
+              href="/"
+              className="block text-sm text-[#06b6d4] hover:text-[#14b8a6] transition-colors text-center py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               ← Back to Home
