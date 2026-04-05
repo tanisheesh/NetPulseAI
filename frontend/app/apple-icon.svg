@@ -1,0 +1,29 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="appleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="180" height="180" rx="40" fill="url(#appleGradient)"/>
+  
+  <!-- Larger Pulse Wave -->
+  <path d="M30 90 L45 90 L55 60 L65 120 L75 70 L85 105 L95 90 L150 90" 
+        stroke="white" 
+        stroke-width="8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+  
+  <!-- Neural Network Nodes -->
+  <circle cx="55" cy="60" r="6" fill="white" opacity="0.9"/>
+  <circle cx="65" cy="120" r="6" fill="white" opacity="0.9"/>
+  <circle cx="75" cy="70" r="6" fill="white" opacity="0.9"/>
+  <circle cx="85" cy="105" r="6" fill="white" opacity="0.9"/>
+  
+  <!-- Connection Lines -->
+  <line x1="55" y1="60" x2="65" y2="120" stroke="white" stroke-width="2" opacity="0.3"/>
+  <line x1="65" y1="120" x2="75" y2="70" stroke="white" stroke-width="2" opacity="0.3"/>
+  <line x1="75" y1="70" x2="85" y2="105" stroke="white" stroke-width="2" opacity="0.3"/>
+</svg>
