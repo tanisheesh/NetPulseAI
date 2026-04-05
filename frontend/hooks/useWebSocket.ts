@@ -95,10 +95,10 @@ export function useWebSocket(sessionId?: string): UseWebSocketReturn {
       }
 
       // Build WebSocket URL with session ID
-      const wsBaseUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
-      const wsUrl = wsBaseUrl.includes("{session_id}") 
-        ? wsBaseUrl.replace("{session_id}", sessionId)
-        : `${wsBaseUrl.replace(/\/ws$/, "")}/ws/${sessionId}`;
+      const wsBaseUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000";
+      // Remove trailing /ws if present, then add /ws/{session_id}
+      const baseWithoutWs = wsBaseUrl.replace(/\/ws\/?$/, "");
+      const wsUrl = `${baseWithoutWs}/ws/${sessionId}`;
 
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
