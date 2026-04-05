@@ -8,17 +8,16 @@ uvicorn[standard]>=0.32.0
 pydantic>=2.10.0
 
 # HTTP Client for Groq API
-httpx==0.26.0
+httpx>=0.26.0
 
 # WebSocket Support
 websockets>=13.0,<16.0
 
 # Environment Variables
-python-dotenv==1.0.0
+python-dotenv>=1.0.0
 
 # Database (Optional - for history persistence)
 supabase>=2.0.0
-postgrest-py>=0.10.6
 
 # Machine Learning / Numerical Computing
 numpy>=1.24.0
@@ -31,4 +30,4 @@ hypothesis>=6.88.0
 anyio>=4.0.0
 
 # Development
-black==24.1.1
+black>=24.1.0
