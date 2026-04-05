@@ -1,7 +1,8 @@
 <div align="center">
 
 # 🌐 NetPulse AI
-### *Intelligent 5G Network Optimization with AI*
+### **Watch AI outperform traditional network allocation in real-time**
+*A full-stack simulation platform demonstrating how AI optimizes 5G network resources better than conventional methods*
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -11,11 +12,7 @@
 [![WebSocket](https://img.shields.io/badge/WebSocket-FF6B6B?style=for-the-badge&logo=socket.io&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 
-### **Watch AI outperform traditional network allocation in real-time**
-
-*A full-stack simulation platform demonstrating how AI optimizes 5G network resources better than conventional methods*
-
-🚀 [Live Demo](https://netpulseai.vercel.app) • 📖 [API Docs](https://netpulseai.onrender.com/docs) • 🎯 [Features](#features) • [🏗️ Architecture](#architecture)
+🚀 [Live Demo](https://netpulseai.vercel.app) • 📖 [API Docs](https://netpulseai.onrender.com/docs)
 
 </div>
 
@@ -220,7 +217,7 @@ Next.js • Components • Deployment
 </table>
 
 ---
-</div> <center>
+<div align="center">
 
 ### 🌟 **Star this repo if you find it useful!** 🌟
 
