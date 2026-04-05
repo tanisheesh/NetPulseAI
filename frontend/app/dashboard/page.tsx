@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [history, setHistory] = useState<NetworkState[]>([]);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [config, setConfig] = useState<api.SimulationConfig>({
     total_bandwidth: 100.0,
     base_latency: 10.0,
@@ -28,8 +29,26 @@ export default function Dashboard() {
   });
   const historyRef = useRef<NetworkState[]>([]);
   
-  // WebSocket connection
-  const { networkState, connectionStatus, error } = useWebSocket();
+  // Load session ID from localStorage on mount and verify it's still valid
+  useEffect(() => {
+    const storedSessionId = api.getSessionId();
+    if (storedSessionId) {
+      // Verify session is still valid
+      api.getStatus().then((response) => {
+        if (response.success && response.data?.session_id === storedSessionId) {
+          setSessionId(storedSessionId);
+          setIsRunning(response.data?.running || false);
+        } else {
+          // Session expired or invalid, clear it
+          api.clearSessionId();
+          setSessionId(null);
+        }
+      });
+    }
+  }, []);
+  
+  // WebSocket connection with session ID
+  const { networkState, connectionStatus, error } = useWebSocket(sessionId || undefined);
 
   // Maintain rolling window of 100 most recent ticks
   useEffect(() => {
@@ -45,6 +64,17 @@ export default function Dashboard() {
       setHistory(newHistory);
     }
   }, [networkState]);
+  
+  // Cleanup session on component unmount only
+  useEffect(() => {
+    return () => {
+      // Cleanup on component unmount (when leaving dashboard)
+      const currentSessionId = api.getSessionId();
+      if (currentSessionId) {
+        api.deleteSession();
+      }
+    };
+  }, []); // Empty dependency array - only run on mount/unmount
 
   // Use real data from WebSocket or fallback to mock data
   const baselineAllocations = networkState?.baseline_result.decision.allocations || {
@@ -100,10 +130,15 @@ export default function Dashboard() {
   const [rlStats, setRlStats] = useState<any>(null);
   
   useEffect(() => {
-    if (isRunning && currentTick > 0) {
+    if (isRunning && currentTick > 0 && sessionId) {
       const fetchRLStats = async () => {
         try {
-          const response = await fetch('http://localhost:8000/api/simulation/rl-stats');
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+          const response = await fetch(`${apiUrl}/api/simulation/rl-stats`, {
+            headers: {
+              'X-Session-ID': sessionId,
+            },
+          });
           if (response.ok) {
             const data = await response.json();
             setRlStats(data);
@@ -118,7 +153,7 @@ export default function Dashboard() {
         fetchRLStats();
       }
     }
-  }, [isRunning, currentTick]);
+  }, [isRunning, currentTick, sessionId]);
 
   const handleStart = async () => {
     setLoading(true);
@@ -129,6 +164,10 @@ export default function Dashboard() {
     if (response.success) {
       setIsRunning(true);
       setApiError(null);
+      // Update session ID
+      if (response.sessionId) {
+        setSessionId(response.sessionId);
+      }
     } else {
       setApiError(response.error || "Failed to start simulation");
     }
@@ -145,6 +184,10 @@ export default function Dashboard() {
     if (response.success) {
       setIsRunning(false);
       setApiError(null);
+      
+      // Clear history but keep session for potential restart
+      setHistory([]);
+      historyRef.current = [];
     } else {
       setApiError(response.error || "Failed to stop simulation");
     }
@@ -156,18 +199,39 @@ export default function Dashboard() {
     setLoading(true);
     setApiError(null);
 
-    const response = await api.resetSimulation();
-
-    if (response.success) {
-      setIsRunning(false);
-      setHistory([]);
-      historyRef.current = [];
-      setApiError(null);
-    } else {
-      setApiError(response.error || "Failed to reset simulation");
+    // Stop simulation first if running
+    if (isRunning && sessionId) {
+      await api.stopSimulation();
     }
 
+    // Delete current session
+    if (sessionId) {
+      await api.deleteSession();
+    }
+
+    // Clear ALL state - complete reset
+    setIsRunning(false);
+    setHistory([]);
+    historyRef.current = [];
+    setSessionId(null);
+    setApiError(null);
+    setRlStats(null);
+    
+    // Reset config to defaults
+    setConfig({
+      total_bandwidth: 100.0,
+      base_latency: 10.0,
+      congestion_factor: 1.5,
+      packet_loss_rate: 2.0,
+      random_seed: 42,
+    });
+
     setLoading(false);
+    
+    // Force a small delay to ensure state is cleared
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   return (

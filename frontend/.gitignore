@@ -207,3 +207,5 @@ storybook-static
 
 # E2E tests
 /e2e/.auth/
+
+.vercel

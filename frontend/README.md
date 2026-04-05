@@ -7,6 +7,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4+-38bdf8.svg)](https://tailwindcss.com/)
 
+## 🌐 Live Demo
+
+**Frontend**: [https://netpulseai.vercel.app](https://netpulseai.vercel.app)
+
+**Backend API**: [https://netpulseai.onrender.com](https://netpulseai.onrender.com)
+
 ## 🎯 Overview
 
 A modern, responsive web application built with **Next.js 16** and **React 19** that provides:

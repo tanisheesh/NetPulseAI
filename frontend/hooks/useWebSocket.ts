@@ -70,7 +70,7 @@ interface UseWebSocketReturn {
   error: string | null;
 }
 
-export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws"): UseWebSocketReturn {
+export function useWebSocket(sessionId?: string): UseWebSocketReturn {
   const [networkState, setNetworkState] = useState<NetworkState | null>(null);
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>("disconnected");
   const [error, setError] = useState<string | null>(null);
@@ -81,13 +81,26 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || "ws
   const maxReconnectAttempts = 10;
 
   const connect = useCallback(() => {
+    // Don't connect if no session ID
+    if (!sessionId) {
+      setConnectionStatus("disconnected");
+      setError("No session ID provided");
+      return;
+    }
+
     try {
       // Close existing connection if any
       if (wsRef.current) {
         wsRef.current.close();
       }
 
-      const ws = new WebSocket(url);
+      // Build WebSocket URL with session ID
+      const wsBaseUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
+      const wsUrl = wsBaseUrl.includes("{session_id}") 
+        ? wsBaseUrl.replace("{session_id}", sessionId)
+        : `${wsBaseUrl.replace(/\/ws$/, "")}/ws/${sessionId}`;
+
+      const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
       ws.onopen = () => {
@@ -120,7 +133,7 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || "ws
 
         // Only attempt to reconnect if we were previously connected
         // This prevents reconnection attempts when navigating away from dashboard
-        if (reconnectAttemptsRef.current < maxReconnectAttempts) {
+        if (reconnectAttemptsRef.current < maxReconnectAttempts && sessionId) {
           reconnectAttemptsRef.current += 1;
           
           reconnectTimeoutRef.current = setTimeout(() => {
@@ -133,11 +146,13 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || "ws
       setError("Failed to establish connection");
       setConnectionStatus("disconnected");
     }
-  }, [url]);
+  }, [sessionId]);
 
   useEffect(() => {
-    // Establish connection on mount
-    connect();
+    // Establish connection on mount if session ID exists
+    if (sessionId) {
+      connect();
+    }
 
     // Cleanup on unmount
     return () => {
@@ -149,7 +164,7 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || "ws
         wsRef.current = null;
       }
     };
-  }, [connect]);
+  }, [connect, sessionId]);
 
   return {
     networkState,

@@ -116,6 +116,12 @@ Default configuration (can be changed via API):
 
 ### Interactive Docs
 
+- **Swagger UI**: [https://netpulseai.onrender.com/docs](https://netpulseai.onrender.com/docs)
+- **ReDoc**: [https://netpulseai.onrender.com/redoc](https://netpulseai.onrender.com/redoc)
+- **Health Check**: [https://netpulseai.onrender.com/api/health](https://netpulseai.onrender.com/api/health)
+
+### Local Development
+
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
