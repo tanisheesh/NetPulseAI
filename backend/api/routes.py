@@ -9,6 +9,8 @@ import os
 from typing import Optional
 from fastapi import FastAPI, HTTPException, WebSocket, Header, Response
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
 
 from models import SimulationConfig, MetricsStatistics, RLLearningStats
 from api.session_manager import session_manager
@@ -26,13 +28,32 @@ app = FastAPI(
     version="2.0.0"
 )
 
+# Security Headers Middleware
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        # Only add HSTS in production
+        if os.getenv("ENVIRONMENT") == "production":
+            response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        return response
+
+app.add_middleware(SecurityHeadersMiddleware)
+
 # Add CORS middleware for all origins (production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for production
+    allow_origins=[
+        "http://localhost:3000",
+        "https://netpulseai.vercel.app",
+        "https://netpulseai-2lnzgirl0-tanish-poddars-projects.vercel.app"
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "X-Session-ID"],
 )
 
 # Global repository instance (injected from main.py)
@@ -109,9 +130,12 @@ async def start_simulation(
         }
     
     except Exception as e:
+        # Log detailed error but return generic message
+        import logging
+        logging.error(f"Failed to start simulation: {str(e)}", exc_info=True)
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to start simulation: {str(e)}"
+            detail="Failed to start simulation. Please check your configuration and try again."
         )
 
 

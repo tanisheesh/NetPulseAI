@@ -114,10 +114,9 @@ export default function Home() {
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Built With Modern Tech</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             {[
-              "Python", "FastAPI", "WebSocket", "Next.js", "React",
-              "Tailwind CSS", "Recharts", "Groq API", "Llama 3", "Hypothesis"
+              "Python", "FastAPI", "WebSocket", "NumPy", "Asyncio", "Pydantic"
             ].map((tech, i) => (
               <div key={i} className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-3 sm:p-4 text-center hover:border-[#06b6d4] transition-colors">
                 <span className="text-xs sm:text-sm font-medium">{tech}</span>

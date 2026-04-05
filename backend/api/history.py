@@ -123,9 +123,17 @@ async def get_run(run_id: str):
         Run dictionary with all metadata and groq_decisions array
         
     Raises:
+        HTTPException 400: Invalid UUID format
         HTTPException 404: When run_id does not exist
         HTTPException 503: When database is not configured
     """
+    # Validate UUID format
+    from uuid import UUID
+    try:
+        UUID(run_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid run_id format. Must be a valid UUID.")
+    
     if not repository or not repository.client.is_connected:
         raise HTTPException(
             status_code=503,
@@ -343,12 +351,12 @@ async def replay_run(websocket: WebSocket, run_id: str, speed: float = Query(def
     Stream simulation snapshots via WebSocket for replay.
     
     Accepts WebSocket connection and streams all tick_snapshots for the run_id
-    in tick order at the configured speed (100ms base interval / speed).
+    in tick order at the configured speed (base interval divided by speed).
     
     Args:
         websocket: WebSocket connection
         run_id: UUID of the simulation run
-        speed: Playback speed multiplier (0.5x, 1x, 2x, 5x) - default 1.0
+        speed: Playback speed multiplier (0.5, 1.0, 2.0, 5.0) - default 1.0
         
     Sends:
         - Snapshot JSON messages in NetworkState format

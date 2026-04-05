@@ -12,13 +12,19 @@ export const metadata: Metadata = {
   description: "See the difference intelligence makes. Real-time 5G network simulation powered by Groq AI and Llama 3.",
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon.svg', type: 'image/svg+xml', sizes: '32x32' },
     ],
     apple: [
-      { url: '/apple-icon.svg', type: 'image/svg+xml', sizes: '180x180' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
   },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({

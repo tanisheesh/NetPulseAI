@@ -355,20 +355,6 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 px-6">
-        <div className="max-w-3xl mx-auto bg-gradient-to-r from-[#06b6d4] to-[#14b8a6] rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to See It in Action?</h2>
-          <p className="text-lg mb-8 opacity-90">Launch the simulator and watch AI optimize network resources in real-time</p>
-          <Link
-            href="/dashboard"
-            className="inline-block px-8 py-4 bg-white text-[#06b6d4] rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors"
-          >
-            Launch Simulator
-          </Link>
-        </div>
-      </section>
-
       {/* Footer */}
       <Footer />
     </div>
